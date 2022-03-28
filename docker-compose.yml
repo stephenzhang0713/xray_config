@@ -1,0 +1,33 @@
+version: "3.6"
+services:
+  xray:
+    image: teddysun/xray
+    container_name: xray
+    restart: always
+    ports:
+      - 8081:443
+    volumes:
+      - /etc/xray:/etc/xray
+      - /etc/letsencrypt:/etc/letsencrypt
+      - /etc/localtime:/etc/localtime:ro
+    command: xray -config=/etc/xray/config.json
+  xray_grpc:
+    image: teddysun/xray
+    container_name: xray_grpc
+    restart: always
+    network_mode: "host"
+    volumes:
+      - /etc/xray:/etc/xray
+    command: xray -config=/etc/xray/config1.json
+    depends_on:
+      - caddy
+  caddy:
+    image: caddy
+    container_name: caddy
+    network_mode: "host"
+    restart: always
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
+      - /etc/caddy/CaddyFile:/etc/caddy/CaddyFile
+      - /etc/caddy/caddy_data:/data
+      - /etc/caddy/config:/config

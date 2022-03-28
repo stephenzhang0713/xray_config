@@ -1,0 +1,31 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "port": 2002,
+      "listen": "127.0.0.1",
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "f1xxxxxx-xxxx-xxxx-xxxx-2xxxxaxxxxxx" // 填写你的 UUID
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "grpc",
+        "grpcSettings": {
+          "serviceName": "grpcService"  // 自己定义serviceName
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom"
+    }
+  ]
+}

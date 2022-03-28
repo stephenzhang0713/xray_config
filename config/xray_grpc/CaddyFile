@@ -1,0 +1,9 @@
+xx.com {
+    @grpc {
+        protocol grpc
+        path  /grpcService/*
+    }
+    tls /etc/letsencrypt/live/xx.com/fullchain.pem /etc/letsencrypt/live/xx.com/privkey.pem
+    reverse_proxy @grpc h2c://127.0.0.1:2002
+    file_server
+}
