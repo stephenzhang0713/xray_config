@@ -28,6 +28,6 @@ services:
     restart: always
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt
-      - /etc/caddy/CaddyFile:/etc/caddy/CaddyFile
+      - /etc/caddy/Caddyfile:/etc/caddy/Caddyfile
       - /etc/caddy/caddy_data:/data
       - /etc/caddy/config:/config

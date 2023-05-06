@@ -9,8 +9,8 @@
       "settings": {
         "clients": [
           {
-            "id": "318fbf48-xxxx-xxxx-ba1e-dd7ccxxxxxxx",
-            "flow": "xtls-rprx-direct",
+            "id": "xxx",
+            "flow": "xtls-rprx-vision",
             "level": 0,
             "email": "love@example.com"
           }
@@ -40,13 +40,13 @@
       },
       "streamSettings": {
         "network": "tcp",
-        "security": "xtls",
-        "xtlsSettings": {
-          "alpn": [
-            "http/1.1"
-          ],
+        "security": "tls",
+        "tlsSettings": {
+          "rejectUnknownSni": true,
+          "minVersion": "1.2",
           "certificates": [
             {
+              "ocspStapling": 3600,
               "certificateFile": "/etc/letsencrypt/live/xxx.com/fullchain.pem",
               "keyFile": "/etc/letsencrypt/live/xxx.com/privkey.pem"
             }
@@ -61,7 +61,7 @@
       "settings": {
         "clients": [
           {
-            "password": "zah56641189",
+            "password": "xxx",
             "level": 0,
             "email": "love@example.com"
           }
@@ -87,7 +87,7 @@
       "settings": {
         "clients": [
           {
-            "id": "318fbf48-xxxx-xxxx-ba1e-dd7ccxxxxxxx",
+            "id": "xxx",
             "level": 0,
             "email": "love@example.com"
           }
@@ -98,8 +98,8 @@
         "network": "ws",
         "security": "none",
         "wsSettings": {
-          "acceptProxyProtocol": true, // 提醒：若你用 Nginx/Caddy 等反代 WS，需要删掉这行
-          "path": "/websocket" // 必须换成自定义的 PATH，需要和分流的一致
+          "acceptProxyProtocol": true,
+          "path": "/websocket"
         }
       }
     },
@@ -110,7 +110,7 @@
       "settings": {
         "clients": [
           {
-            "id": "318fbf48-xxxx-xxxx-ba1e-dd7ccxxxxxxx",
+            "id": "xxx",
             "level": 0,
             "email": "love@example.com"
           }
@@ -139,7 +139,7 @@
       "settings": {
         "clients": [
           {
-            "id": "318fbf48-xxxx-xxxx-ba1e-dd7ccxxxxxxx",
+            "id": "xxx",
             "level": 0,
             "email": "love@example.com"
           }
